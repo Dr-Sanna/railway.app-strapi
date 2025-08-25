@@ -381,14 +381,13 @@ export interface ApiCaseCase extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    content: Schema.Attribute.RichText;
-    content2: Schema.Attribute.RichText &
+    content: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor.CKEditor',
         {
-          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3ODc3MDIzOTksImp0aSI6IjgzOTk1NWM4LWY4MzMtNDVhMy1hMDJkLTVkODdiMWZkZWI4NCIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIiwiRTJQIiwiRTJXIiwiQk9YIl0sInZjIjoiMTFiYTJkZjIifQ.Guu4ChEQpGsJOHZN-pp07xIZPry1YYt8dbaM-FWTHKvr6Wl-cqb0H4QRAudzcSfmCnEot8_TDdzyjQUWKt37pA';
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3ODc3MDIzOTksImp0aSI6IjE4YWM2ODU5LWM2YjUtNGNjOS05ZWFlLWIzMmE0ZWFhYTQ0YyIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiXSwiZmVhdHVyZXMiOlsiRFJVUCIsIkUyUCIsIkUyVyIsIkJPWCJdLCJ2YyI6IjlhZDExOTMxIn0.A2gB9YjfVbLL8_rgdBlSmDTGeP0OehBUA_sqodULRTRITLRrJ5fpChk0k6JSyXInKQNNPr4fzSqpleo2AL6rOQ';
           output: 'Markdown';
-          preset: 'rich';
+          preset: 'standard';
         }
       >;
     cover: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
@@ -400,6 +399,7 @@ export interface ApiCaseCase extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::case.case'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    qa_blocks: Schema.Attribute.Component<'qa.q-a-pair', true>;
     slug: Schema.Attribute.UID<'title'>;
     title: Schema.Attribute.String;
     type: Schema.Attribute.Enumeration<['qa', 'quiz', 'presentation']>;

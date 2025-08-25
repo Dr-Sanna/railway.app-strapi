@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_qa_q_a_pairs",
+  "info": {
+    "displayName": "Q/A pair"
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "string"
+    },
+    "answer": {
+      "type": "customField",
+      "options": {
+        "output": "Markdown",
+        "preset": "standard",
+        "licenseKey": "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3ODc3MDIzOTksImp0aSI6IjE4YWM2ODU5LWM2YjUtNGNjOS05ZWFlLWIzMmE0ZWFhYTQ0YyIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiXSwiZmVhdHVyZXMiOlsiRFJVUCIsIkUyUCIsIkUyVyIsIkJPWCJdLCJ2YyI6IjlhZDExOTMxIn0.A2gB9YjfVbLL8_rgdBlSmDTGeP0OehBUA_sqodULRTRITLRrJ5fpChk0k6JSyXInKQNNPr4fzSqpleo2AL6rOQ"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    }
+  }
+}
