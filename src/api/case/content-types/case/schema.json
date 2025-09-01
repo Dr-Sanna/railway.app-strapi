@@ -53,6 +53,12 @@
       "type": "component",
       "repeatable": true,
       "component": "qa.q-a-pair"
+    },
+    "references": {
+      "type": "text"
+    },
+    "copyright": {
+      "type": "text"
     }
   }
 }
