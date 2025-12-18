@@ -381,6 +381,7 @@ export interface ApiCaseCase extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
+    child_cases: Schema.Attribute.Relation<'manyToOne', 'api::case.case'>;
     content: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor.CKEditor',
@@ -396,9 +397,11 @@ export interface ApiCaseCase extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     excerpt: Schema.Attribute.Text;
+    kind: Schema.Attribute.Enumeration<['single', 'container']>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::case.case'> &
       Schema.Attribute.Private;
+    parent_case: Schema.Attribute.Relation<'oneToMany', 'api::case.case'>;
     publishedAt: Schema.Attribute.DateTime;
     qa_blocks: Schema.Attribute.Component<'qa.q-a-pair', true>;
     quiz_blocks: Schema.Attribute.Component<'quiz.quiz-block', true>;
