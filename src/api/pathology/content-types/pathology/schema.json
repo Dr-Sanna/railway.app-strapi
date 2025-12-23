@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pathologies",
+  "info": {
+    "singularName": "pathology",
+    "pluralName": "pathologies",
+    "displayName": "Pathology",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "excerpt": {
+      "type": "text"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "content": {
+      "type": "customField",
+      "options": {
+        "output": "Markdown",
+        "preset": "rich",
+        "licenseKey": "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3ODc3MDIzOTksImp0aSI6IjgzOTk1NWM4LWY4MzMtNDVhMy1hMDJkLTVkODdiMWZkZWI4NCIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIiwiRTJQIiwiRTJXIiwiQk9YIl0sInZjIjoiMTFiYTJkZjIifQ.Guu4ChEQpGsJOHZN-pp07xIZPry1YYt8dbaM-FWTHKvr6Wl-cqb0H4QRAudzcSfmCnEot8_TDdzyjQUWKt37pA"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
+    "qa_blocks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "qa.q-a-pair"
+    },
+    "quiz_blocks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "quiz.quiz-block"
+    },
+    "references": {
+      "type": "string"
+    },
+    "copyright": {
+      "type": "string"
+    },
+    "cases": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::case.case",
+      "inversedBy": "pathologies"
+    }
+  }
+}

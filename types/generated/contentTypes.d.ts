@@ -381,7 +381,6 @@ export interface ApiCaseCase extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    child_cases: Schema.Attribute.Relation<'oneToMany', 'api::case.case'>;
     content: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor.CKEditor',
@@ -397,11 +396,13 @@ export interface ApiCaseCase extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     excerpt: Schema.Attribute.Text;
-    kind: Schema.Attribute.Enumeration<['single', 'container']>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::case.case'> &
       Schema.Attribute.Private;
-    parent_case: Schema.Attribute.Relation<'manyToOne', 'api::case.case'>;
+    pathologies: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::pathology.pathology'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     qa_blocks: Schema.Attribute.Component<'qa.q-a-pair', true>;
     quiz_blocks: Schema.Attribute.Component<'quiz.quiz-block', true>;
@@ -409,6 +410,52 @@ export interface ApiCaseCase extends Struct.CollectionTypeSchema {
     slug: Schema.Attribute.UID<'title'>;
     title: Schema.Attribute.String;
     type: Schema.Attribute.Enumeration<['qa', 'quiz', 'presentation']>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPathologyPathology extends Struct.CollectionTypeSchema {
+  collectionName: 'pathologies';
+  info: {
+    description: '';
+    displayName: 'Pathology';
+    pluralName: 'pathologies';
+    singularName: 'pathology';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    cases: Schema.Attribute.Relation<'manyToMany', 'api::case.case'>;
+    content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3ODc3MDIzOTksImp0aSI6IjgzOTk1NWM4LWY4MzMtNDVhMy1hMDJkLTVkODdiMWZkZWI4NCIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIiwiRTJQIiwiRTJXIiwiQk9YIl0sInZjIjoiMTFiYTJkZjIifQ.Guu4ChEQpGsJOHZN-pp07xIZPry1YYt8dbaM-FWTHKvr6Wl-cqb0H4QRAudzcSfmCnEot8_TDdzyjQUWKt37pA';
+          output: 'Markdown';
+          preset: 'rich';
+        }
+      >;
+    copyright: Schema.Attribute.String;
+    cover: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    excerpt: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pathology.pathology'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    qa_blocks: Schema.Attribute.Component<'qa.q-a-pair', true>;
+    quiz_blocks: Schema.Attribute.Component<'quiz.quiz-block', true>;
+    references: Schema.Attribute.String;
+    slug: Schema.Attribute.UID;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -925,6 +972,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::case.case': ApiCaseCase;
+      'api::pathology.pathology': ApiPathologyPathology;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

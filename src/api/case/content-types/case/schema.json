@@ -65,24 +65,11 @@
       "repeatable": true,
       "component": "quiz.quiz-block"
     },
-    "kind": {
-      "type": "enumeration",
-      "enum": [
-        "single",
-        "container"
-      ]
-    },
-    "child_cases": {
+    "pathologies": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::case.case",
-      "mappedBy": "parent_case"
-    },
-    "parent_case": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::case.case",
-      "inversedBy": "child_cases"
+      "relation": "manyToMany",
+      "target": "api::pathology.pathology",
+      "mappedBy": "cases"
     }
   }
 }
