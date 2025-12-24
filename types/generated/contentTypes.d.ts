@@ -416,6 +416,57 @@ export interface ApiCaseCase extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiDocNodeDocNode extends Struct.CollectionTypeSchema {
+  collectionName: 'doc_nodes';
+  info: {
+    description: '';
+    displayName: 'DocNode';
+    pluralName: 'doc-nodes';
+    singularName: 'doc-node';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    children: Schema.Attribute.Relation<'oneToMany', 'api::doc-node.doc-node'>;
+    content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3ODc3MDIzOTksImp0aSI6IjE4YWM2ODU5LWM2YjUtNGNjOS05ZWFlLWIzMmE0ZWFhYTQ0YyIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiXSwiZmVhdHVyZXMiOlsiRFJVUCIsIkUyUCIsIkUyVyIsIkJPWCJdLCJ2YyI6IjlhZDExOTMxIn0.A2gB9YjfVbLL8_rgdBlSmDTGeP0OehBUA_sqodULRTRITLRrJ5fpChk0k6JSyXInKQNNPr4fzSqpleo2AL6rOQ';
+          output: 'Markdown';
+          preset: 'rich';
+        }
+      >;
+    copyright: Schema.Attribute.Text;
+    cover: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    excerpt: Schema.Attribute.Text;
+    level: Schema.Attribute.Enumeration<
+      ['subject', 'chapter', 'item', 'section']
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::doc-node.doc-node'
+    > &
+      Schema.Attribute.Private;
+    order: Schema.Attribute.Integer;
+    parent: Schema.Attribute.Relation<'manyToOne', 'api::doc-node.doc-node'>;
+    publishedAt: Schema.Attribute.DateTime;
+    qa_blocks: Schema.Attribute.Component<'qa.q-a-pair', true>;
+    quiz_blocks: Schema.Attribute.Component<'quiz.quiz-block', true>;
+    references: Schema.Attribute.Text;
+    slug: Schema.Attribute.UID;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPathologyPathology extends Struct.CollectionTypeSchema {
   collectionName: 'pathologies';
   info: {
@@ -438,7 +489,7 @@ export interface ApiPathologyPathology extends Struct.CollectionTypeSchema {
           preset: 'rich';
         }
       >;
-    copyright: Schema.Attribute.String;
+    copyright: Schema.Attribute.Text;
     cover: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -453,7 +504,7 @@ export interface ApiPathologyPathology extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     qa_blocks: Schema.Attribute.Component<'qa.q-a-pair', true>;
     quiz_blocks: Schema.Attribute.Component<'quiz.quiz-block', true>;
-    references: Schema.Attribute.String;
+    references: Schema.Attribute.Text;
     slug: Schema.Attribute.UID;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -972,6 +1023,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::case.case': ApiCaseCase;
+      'api::doc-node.doc-node': ApiDocNodeDocNode;
       'api::pathology.pathology': ApiPathologyPathology;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

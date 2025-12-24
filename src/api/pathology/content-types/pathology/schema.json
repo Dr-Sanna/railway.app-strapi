@@ -51,10 +51,10 @@
       "component": "quiz.quiz-block"
     },
     "references": {
-      "type": "string"
+      "type": "text"
     },
     "copyright": {
-      "type": "string"
+      "type": "text"
     },
     "cases": {
       "type": "relation",
