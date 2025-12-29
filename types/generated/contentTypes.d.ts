@@ -512,6 +512,22 @@ export interface ApiPathologyPathology extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
+    atlasBadge: Schema.Attribute.Enumeration<
+      [
+        'Auto-immun',
+        "Anomalie d'\u00E9ruption",
+        'Infectieux',
+        'Inflammatoire / immunitaire',
+        'Kystes & pseudokystes',
+        'L\u00E9sion r\u00E9actionnelle',
+        'Technique',
+        'Tumeur b\u00E9nigne',
+        'Tumeur maligne',
+        'Traumatologie',
+        'Vasculaire / g\u00E9n\u00E9tique',
+        'Viral',
+      ]
+    >;
     cases: Schema.Attribute.Relation<'manyToMany', 'api::case.case'>;
     content: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
