@@ -4,10 +4,11 @@
   "info": {
     "singularName": "badge",
     "pluralName": "badges",
-    "displayName": "Badge"
+    "displayName": "Badge",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "attributes": {
     "label": {
