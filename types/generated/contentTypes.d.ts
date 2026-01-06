@@ -516,6 +516,7 @@ export interface ApiPathologyPathology extends Struct.CollectionTypeSchema {
       [
         'Auto-immun',
         "Anomalie d'\u00E9ruption",
+        'Iatrog\u00E8ne / m\u00E9dicamenteux',
         'Infectieux',
         'Inflammatoire / immunitaire',
         'Kystes & pseudokystes',

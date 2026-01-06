@@ -79,6 +79,7 @@
       "enum": [
         "Auto-immun",
         "Anomalie d'éruption",
+        "Iatrogène / médicamenteux",
         "Infectieux",
         "Inflammatoire / immunitaire",
         "Kystes & pseudokystes",
