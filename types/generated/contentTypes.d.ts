@@ -369,6 +369,38 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBadgeBadge extends Struct.CollectionTypeSchema {
+  collectionName: 'badges';
+  info: {
+    displayName: 'Badge';
+    pluralName: 'badges';
+    singularName: 'badge';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    label: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::badge.badge'> &
+      Schema.Attribute.Private;
+    pathologies: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::pathology.pathology'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    variant: Schema.Attribute.Enumeration<
+      ['success', 'danger', 'warning', 'info', 'secondary']
+    >;
+  };
+}
+
 export interface ApiCaseCase extends Struct.CollectionTypeSchema {
   collectionName: 'cases';
   info: {
@@ -529,6 +561,7 @@ export interface ApiPathologyPathology extends Struct.CollectionTypeSchema {
         'Viral',
       ]
     >;
+    badges: Schema.Attribute.Relation<'manyToMany', 'api::badge.badge'>;
     cases: Schema.Attribute.Relation<'manyToMany', 'api::case.case'>;
     content: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
@@ -1088,6 +1121,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::badge.badge': ApiBadgeBadge;
       'api::case.case': ApiCaseCase;
       'api::doc-node.doc-node': ApiDocNodeDocNode;
       'api::pathology.pathology': ApiPathologyPathology;

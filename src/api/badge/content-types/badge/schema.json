@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "badges",
+  "info": {
+    "singularName": "badge",
+    "pluralName": "badges",
+    "displayName": "Badge"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": [
+        "success",
+        "danger",
+        "warning",
+        "info",
+        "secondary"
+      ]
+    },
+    "pathologies": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::pathology.pathology",
+      "inversedBy": "badges"
+    }
+  }
+}

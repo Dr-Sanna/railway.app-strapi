@@ -91,6 +91,12 @@
         "Vasculaire / génétique",
         "Viral"
       ]
+    },
+    "badges": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::badge.badge",
+      "mappedBy": "pathologies"
     }
   }
 }
