@@ -397,7 +397,7 @@ export interface ApiBadgeBadge extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     variant: Schema.Attribute.Enumeration<
-      ['success', 'danger', 'warning', 'info', 'secondary']
+      ['success', 'danger', 'warning', 'info', 'secondary', 'notion']
     >;
   };
 }

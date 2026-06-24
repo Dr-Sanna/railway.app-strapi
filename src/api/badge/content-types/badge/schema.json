@@ -21,7 +21,8 @@
         "danger",
         "warning",
         "info",
-        "secondary"
+        "secondary",
+        "notion"
       ]
     },
     "pathologies": {
