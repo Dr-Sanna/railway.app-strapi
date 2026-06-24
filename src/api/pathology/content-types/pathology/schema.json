@@ -74,24 +74,6 @@
       },
       "customField": "plugin::ckeditor.CKEditor"
     },
-    "atlasBadge": {
-      "type": "enumeration",
-      "enum": [
-        "Auto-immun",
-        "Anomalie d'éruption",
-        "Iatrogène / médicamenteux",
-        "Infectieux",
-        "Inflammatoire / immunitaire",
-        "Kystes & pseudokystes",
-        "Lésion réactionnelle",
-        "Technique",
-        "Tumeur bénigne",
-        "Tumeur maligne",
-        "Traumatologie",
-        "Vasculaire / génétique",
-        "Viral"
-      ]
-    },
     "badges": {
       "type": "relation",
       "relation": "manyToMany",
