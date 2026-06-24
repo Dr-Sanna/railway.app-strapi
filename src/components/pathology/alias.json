@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_pathology_aliases",
+  "info": {
+    "displayName": "Alias"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

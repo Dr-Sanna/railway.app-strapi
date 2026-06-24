@@ -1,5 +1,15 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface PathologyAlias extends Struct.ComponentSchema {
+  collectionName: 'components_pathology_aliases';
+  info: {
+    displayName: 'Alias';
+  };
+  attributes: {
+    name: Schema.Attribute.String;
+  };
+}
+
 export interface QaQAPair extends Struct.ComponentSchema {
   collectionName: 'components_qa_q_a_pairs';
   info: {
@@ -66,6 +76,7 @@ export interface QuizQuizBlock extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'pathology.alias': PathologyAlias;
       'qa.q-a-pair': QaQAPair;
       'quiz.proposition': QuizProposition;
       'quiz.quiz-block': QuizQuizBlock;

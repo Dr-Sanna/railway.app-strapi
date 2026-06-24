@@ -79,6 +79,11 @@
       "relation": "manyToMany",
       "target": "api::badge.badge",
       "mappedBy": "pathologies"
+    },
+    "aliases": {
+      "type": "component",
+      "repeatable": true,
+      "component": "pathology.alias"
     }
   }
 }

@@ -545,6 +545,7 @@ export interface ApiPathologyPathology extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
+    aliases: Schema.Attribute.Component<'pathology.alias', true>;
     badges: Schema.Attribute.Relation<'manyToMany', 'api::badge.badge'>;
     cases: Schema.Attribute.Relation<'manyToMany', 'api::case.case'>;
     content: Schema.Attribute.RichText &
