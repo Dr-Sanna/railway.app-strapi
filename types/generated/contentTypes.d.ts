@@ -501,6 +501,10 @@ export interface ApiDocNodeDocNode extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     customSlug: Schema.Attribute.UID;
+    doc_themes: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::doc-theme.doc-theme'
+    >;
     excerpt: Schema.Attribute.Text;
     level: Schema.Attribute.Enumeration<
       ['subject', 'chapter', 'item', 'section']
@@ -525,6 +529,40 @@ export interface ApiDocNodeDocNode extends Struct.CollectionTypeSchema {
           preset: 'light';
         }
       >;
+    slug: Schema.Attribute.UID;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDocThemeDocTheme extends Struct.CollectionTypeSchema {
+  collectionName: 'doc_themes';
+  info: {
+    displayName: 'DocTheme';
+    pluralName: 'doc-themes';
+    singularName: 'doc-theme';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    doc_nodes: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::doc-node.doc-node'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::doc-theme.doc-theme'
+    > &
+      Schema.Attribute.Private;
+    order: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -1109,6 +1147,7 @@ declare module '@strapi/strapi' {
       'api::badge.badge': ApiBadgeBadge;
       'api::case.case': ApiCaseCase;
       'api::doc-node.doc-node': ApiDocNodeDocNode;
+      'api::doc-theme.doc-theme': ApiDocThemeDocTheme;
       'api::pathology.pathology': ApiPathologyPathology;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

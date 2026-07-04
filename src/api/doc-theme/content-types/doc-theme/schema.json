@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "doc_themes",
+  "info": {
+    "singularName": "doc-theme",
+    "pluralName": "doc-themes",
+    "displayName": "DocTheme"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "doc_nodes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::doc-node.doc-node",
+      "inversedBy": "doc_themes"
+    }
+  }
+}
