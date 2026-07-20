@@ -109,6 +109,9 @@
         "preset": "light"
       },
       "customField": "plugin::ckeditor.CKEditor"
+    },
+    "sectionsHeading": {
+      "type": "string"
     }
   }
 }

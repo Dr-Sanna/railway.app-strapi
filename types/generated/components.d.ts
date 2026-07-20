@@ -73,6 +73,21 @@ export interface QuizQuizBlock extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedGalleryImage extends Struct.ComponentSchema {
+  collectionName: 'components_shared_gallery_images';
+  info: {
+    displayName: 'Gallery image';
+  };
+  attributes: {
+    alt: Schema.Attribute.String;
+    caption: Schema.Attribute.Text;
+    credit: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    sourceUrl: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -80,6 +95,7 @@ declare module '@strapi/strapi' {
       'qa.q-a-pair': QaQAPair;
       'quiz.proposition': QuizProposition;
       'quiz.quiz-block': QuizQuizBlock;
+      'shared.gallery-image': SharedGalleryImage;
     }
   }
 }

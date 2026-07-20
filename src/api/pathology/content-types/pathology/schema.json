@@ -93,6 +93,11 @@
         "preset": "light"
       },
       "customField": "plugin::ckeditor.CKEditor"
+    },
+    "gallery": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.gallery-image"
     }
   }
 }

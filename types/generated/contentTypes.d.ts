@@ -547,6 +547,7 @@ export interface ApiDocNodeDocNode extends Struct.CollectionTypeSchema {
           preset: 'light';
         }
       >;
+    sectionsHeading: Schema.Attribute.String;
     slug: Schema.Attribute.UID;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -636,6 +637,7 @@ export interface ApiPathologyPathology extends Struct.CollectionTypeSchema {
         }
       >;
     excerpt: Schema.Attribute.Text;
+    gallery: Schema.Attribute.Component<'shared.gallery-image', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

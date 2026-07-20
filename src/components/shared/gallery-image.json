@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_shared_gallery_images",
+  "info": {
+    "displayName": "Gallery image"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "alt": {
+      "type": "string"
+    },
+    "caption": {
+      "type": "text"
+    },
+    "credit": {
+      "type": "text"
+    },
+    "sourceUrl": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}
