@@ -91,6 +91,11 @@
         "preset": "light"
       },
       "customField": "plugin::ckeditor.CKEditor"
+    },
+    "training_summary": {
+      "type": "component",
+      "repeatable": false,
+      "component": "training.resume-d-entrainement"
     }
   }
 }

@@ -467,6 +467,10 @@ export interface ApiCaseCase extends Struct.CollectionTypeSchema {
       >;
     slug: Schema.Attribute.UID<'title'>;
     title: Schema.Attribute.String;
+    training_summary: Schema.Attribute.Component<
+      'training.resume-d-entrainement',
+      false
+    >;
     type: Schema.Attribute.Enumeration<['qa', 'quiz', 'presentation']>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
