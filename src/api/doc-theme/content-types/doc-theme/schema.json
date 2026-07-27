@@ -24,6 +24,12 @@
       "relation": "manyToMany",
       "target": "api::doc-node.doc-node",
       "inversedBy": "doc_themes"
+    },
+    "cases": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::case.case",
+      "mappedBy": "doc_themes"
     }
   }
 }

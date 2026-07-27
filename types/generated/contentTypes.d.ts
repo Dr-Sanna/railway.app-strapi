@@ -445,6 +445,10 @@ export interface ApiCaseCase extends Struct.CollectionTypeSchema {
           preset: 'light';
         }
       >;
+    doc_themes: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::doc-theme.doc-theme'
+    >;
     excerpt: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::case.case'> &
@@ -571,6 +575,7 @@ export interface ApiDocThemeDocTheme extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
+    cases: Schema.Attribute.Relation<'manyToMany', 'api::case.case'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

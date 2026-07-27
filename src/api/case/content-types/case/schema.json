@@ -96,6 +96,12 @@
       "type": "component",
       "repeatable": false,
       "component": "training.resume-d-entrainement"
+    },
+    "doc_themes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::doc-theme.doc-theme",
+      "inversedBy": "cases"
     }
   }
 }
