@@ -1,7 +1,8 @@
 {
   "collectionName": "components_pathology_classifications",
   "info": {
-    "displayName": "Classification"
+    "displayName": "Classification",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -9,6 +10,9 @@
       "type": "string"
     },
     "subcategory": {
+      "type": "string"
+    },
+    "subdivision": {
       "type": "string"
     }
   }

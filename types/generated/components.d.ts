@@ -13,11 +13,13 @@ export interface PathologyAlias extends Struct.ComponentSchema {
 export interface PathologyClassification extends Struct.ComponentSchema {
   collectionName: 'components_pathology_classifications';
   info: {
+    description: '';
     displayName: 'Classification';
   };
   attributes: {
     category: Schema.Attribute.String;
     subcategory: Schema.Attribute.String;
+    subdivision: Schema.Attribute.String;
   };
 }
 
