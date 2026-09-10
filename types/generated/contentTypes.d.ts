@@ -381,6 +381,10 @@ export interface ApiBadgeBadge extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
+    atlasPathologies: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::pathology.pathology'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -612,6 +616,7 @@ export interface ApiPathologyPathology extends Struct.CollectionTypeSchema {
   };
   attributes: {
     aliases: Schema.Attribute.Component<'pathology.alias', true>;
+    atlasBadges: Schema.Attribute.Relation<'manyToMany', 'api::badge.badge'>;
     badges: Schema.Attribute.Relation<'manyToMany', 'api::badge.badge'>;
     cases: Schema.Attribute.Relation<'manyToMany', 'api::case.case'>;
     classification: Schema.Attribute.Component<

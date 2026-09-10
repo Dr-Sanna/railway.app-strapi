@@ -30,6 +30,12 @@
       "relation": "manyToMany",
       "target": "api::pathology.pathology",
       "inversedBy": "badges"
+    },
+    "atlasPathologies": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::pathology.pathology",
+      "mappedBy": "atlasBadges"
     }
   }
 }
