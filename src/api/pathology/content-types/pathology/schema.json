@@ -99,7 +99,7 @@
       "repeatable": true,
       "component": "shared.gallery-image"
     },
-    "Classification": {
+    "classification": {
       "type": "component",
       "repeatable": true,
       "component": "pathology.classification"
