@@ -10,6 +10,17 @@ export interface PathologyAlias extends Struct.ComponentSchema {
   };
 }
 
+export interface PathologyClassification extends Struct.ComponentSchema {
+  collectionName: 'components_pathology_classifications';
+  info: {
+    displayName: 'Classification';
+  };
+  attributes: {
+    category: Schema.Attribute.String;
+    subcategory: Schema.Attribute.String;
+  };
+}
+
 export interface QaQAPair extends Struct.ComponentSchema {
   collectionName: 'components_qa_q_a_pairs';
   info: {
@@ -128,6 +139,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'pathology.alias': PathologyAlias;
+      'pathology.classification': PathologyClassification;
       'qa.q-a-pair': QaQAPair;
       'quiz.proposition': QuizProposition;
       'quiz.quiz-block': QuizQuizBlock;
