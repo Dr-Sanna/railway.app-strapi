@@ -619,6 +619,10 @@ export interface ApiPathologyPathology extends Struct.CollectionTypeSchema {
     atlasBadges: Schema.Attribute.Relation<'manyToMany', 'api::badge.badge'>;
     badges: Schema.Attribute.Relation<'manyToMany', 'api::badge.badge'>;
     cases: Schema.Attribute.Relation<'manyToMany', 'api::case.case'>;
+    childPathologies: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pathology.pathology'
+    >;
     classification: Schema.Attribute.Component<
       'pathology.classification',
       true
@@ -662,6 +666,10 @@ export interface ApiPathologyPathology extends Struct.CollectionTypeSchema {
       'api::pathology.pathology'
     > &
       Schema.Attribute.Private;
+    parentPathology: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::pathology.pathology'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     qa_blocks: Schema.Attribute.Component<'qa.q-a-pair', true>;
     quiz_blocks: Schema.Attribute.Component<'quiz.quiz-block', true>;

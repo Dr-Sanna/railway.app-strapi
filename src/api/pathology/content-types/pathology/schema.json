@@ -109,6 +109,18 @@
       "relation": "manyToMany",
       "target": "api::badge.badge",
       "inversedBy": "atlasPathologies"
+    },
+    "parentPathology": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::pathology.pathology",
+      "inversedBy": "childPathologies"
+    },
+    "childPathologies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pathology.pathology",
+      "mappedBy": "parentPathology"
     }
   }
 }
