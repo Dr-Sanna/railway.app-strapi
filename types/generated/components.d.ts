@@ -18,8 +18,11 @@ export interface PathologyClassification extends Struct.ComponentSchema {
   };
   attributes: {
     category: Schema.Attribute.String;
+    categoryId: Schema.Attribute.String;
     subcategory: Schema.Attribute.String;
+    subcategoryId: Schema.Attribute.String;
     subdivision: Schema.Attribute.String;
+    subdivisionId: Schema.Attribute.String;
   };
 }
 

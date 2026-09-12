@@ -660,6 +660,7 @@ export interface ApiPathologyPathology extends Struct.CollectionTypeSchema {
       >;
     excerpt: Schema.Attribute.Text;
     gallery: Schema.Attribute.Component<'shared.gallery-image', true>;
+    generalFor: Schema.Attribute.JSON;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
