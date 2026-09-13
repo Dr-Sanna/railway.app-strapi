@@ -124,6 +124,9 @@
     },
     "generalFor": {
       "type": "json"
+    },
+    "furtherLinks": {
+      "type": "json"
     }
   }
 }
